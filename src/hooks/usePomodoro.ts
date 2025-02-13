@@ -29,10 +29,18 @@
 
 import { useState, useEffect, useCallback } from 'react';
 
+export type TimerType = 'pomodoro' | 'shortBreak' | 'longBreak';
+
+const TIMER_PRESETS = {
+  pomodoro: 25 * 60,    // 25 minutes
+  shortBreak: 5 * 60,   // 5 minutes
+  longBreak: 15 * 60    // 15 minutes
+} as const;
+
 interface PomodoroConfig {
-  initialTime?: number;        // Initial time in seconds (default: 25 minutes)
-  onComplete?: () => void;     // Callback when timer reaches zero
-  onTick?: (time: number) => void; // Callback for each second
+  timerType?: TimerType;
+  onComplete?: () => void;
+  onTick?: (time: number) => void;
 }
 
 interface PomodoroState {
@@ -42,14 +50,17 @@ interface PomodoroState {
   pause: () => void;         // Pause timer
   reset: () => void;         // Reset to initial time
   formattedTime: string;     // Time in MM:SS format
+  timerType: TimerType;
+  changeTimerType: (newType: TimerType) => void;
 }
 
 export const usePomodoro = ({
-  initialTime = 25 * 60,
+  timerType = 'pomodoro',
   onComplete,
   onTick,
-}: PomodoroConfig = {}): PomodoroState => {
-  const [time, setTime] = useState(initialTime);
+}: PomodoroConfig = {}) => {
+  const [currentTimerType, setCurrentTimerType] = useState<TimerType>(timerType);
+  const [time, setTime] = useState(TIMER_PRESETS[timerType]);
   const [isActive, setIsActive] = useState(false);
 
   // Format time as MM:SS
@@ -96,8 +107,14 @@ export const usePomodoro = ({
 
   const reset = useCallback(() => {
     setIsActive(false);
-    setTime(initialTime);
-  }, [initialTime]);
+    setTime(TIMER_PRESETS[timerType]);
+  }, [timerType]);
+
+  const changeTimerType = useCallback((newType: TimerType) => {
+    setIsActive(false);
+    setCurrentTimerType(newType);
+    setTime(TIMER_PRESETS[newType]);
+  }, []);
 
   return {
     time,
@@ -106,5 +123,7 @@ export const usePomodoro = ({
     pause,
     reset,
     formattedTime: formatTime(time),
+    timerType: currentTimerType,
+    changeTimerType,
   };
 }; 

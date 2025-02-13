@@ -2,13 +2,14 @@
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 
-type ButtonProps = {
+interface ButtonProps {
+  onClick: () => void;
   children: React.ReactNode;
-  onClick?: () => void;
   className?: string;
-};
+  disabled?: boolean;
+}
 
-export const Button = ({ children, onClick, className }: ButtonProps) => {
+export const Button = ({ children, onClick, className, disabled }: ButtonProps) => {
   return (
     <motion.button
       whileHover={{ scale: 1.05 }}
@@ -22,6 +23,7 @@ export const Button = ({ children, onClick, className }: ButtonProps) => {
         className
       )}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </motion.button>

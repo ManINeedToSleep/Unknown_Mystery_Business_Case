@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext } from "react";
-import { usePomodoro } from "@/hooks/usePomodoro";
+import { usePomodoro, TimerType } from "@/hooks/usePomodoro";
 
 /**
  * Timer Context and Provider
@@ -22,9 +22,11 @@ type TimerContextType = {
   minutes: number;      // Current minutes remaining (0-25)
   seconds: number;      // Current seconds remaining (0-59)
   isActive: boolean;    // Timer running state
+  timerType: TimerType;  // Current timer type
   start: () => void;    // Starts or resumes the timer
   pause: () => void;    // Pauses the timer
   reset: () => void;    // Resets timer to 25:00
+  changeTimerType: (type: TimerType) => void;
 };
 
 // Create context with null as initial value
@@ -51,10 +53,11 @@ export const TimerProvider = ({ children }: { children: React.ReactNode }) => {
     start,
     pause,
     reset,
+    timerType,
+    changeTimerType,
   } = usePomodoro({
     onComplete: () => {
-      // Could add sound/notification here
-      console.log('Pomodoro completed!');
+      console.log('Timer completed!');
     },
   });
 
@@ -62,7 +65,18 @@ export const TimerProvider = ({ children }: { children: React.ReactNode }) => {
   const seconds = time % 60;
 
   return (
-    <TimerContext.Provider value={{ minutes, seconds, isActive, start, pause, reset }}>
+    <TimerContext.Provider 
+      value={{ 
+        minutes, 
+        seconds, 
+        isActive, 
+        timerType,
+        start, 
+        pause, 
+        reset,
+        changeTimerType 
+      }}
+    >
       {children}
     </TimerContext.Provider>
   );

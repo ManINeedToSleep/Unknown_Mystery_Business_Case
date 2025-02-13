@@ -5,6 +5,7 @@ import { Background } from "@/components/Background";
 import { TimerProvider } from "@/components/TimerProvider";
 import { TimerDisplay } from "@/components/TimerDisplay";
 import { TimerControls } from "@/components/TimerControls";
+import { TimerTypeSelect } from "@/components/TimerTypeSelect";
 
 export default function Timer() {
   return (
@@ -12,8 +13,9 @@ export default function Timer() {
       <Background />
       <div className="relative flex flex-col items-center justify-start gap-8 w-full max-w-6xl mx-auto pt-8">
         <Card className="w-full max-w-lg px-4">
-          <h2 className="text-2xl font-semibold text-center mb-6">Focus Timer</h2>
           <TimerProvider>
+            <TimerTypeSelect />
+            <h2 className="text-2xl font-semibold text-center mb-6">Focus Timer</h2>
             <TimerDisplay />
             <TimerControls />
           </TimerProvider>
