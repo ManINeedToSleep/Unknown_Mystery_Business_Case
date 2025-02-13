@@ -58,7 +58,7 @@ export const usePomodoro = ({
   timerType = 'pomodoro',
   onComplete,
   onTick,
-}: PomodoroConfig = {}) => {
+}: PomodoroConfig = {}): PomodoroState => {
   const [currentTimerType, setCurrentTimerType] = useState<TimerType>(timerType);
   const [time, setTime] = useState(TIMER_PRESETS[timerType]);
   const [isActive, setIsActive] = useState(false);

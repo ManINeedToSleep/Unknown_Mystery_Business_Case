@@ -5,27 +5,29 @@ A beautiful and calming Pomodoro timer application built with Next.js, featuring
 ## 🚧 Current Status
 
 This is the initial phase of the project, focusing on:
-- Core timer functionality
+- Core Pomodoro timer functionality
 - Beautiful UI/UX with cherry blossom theme
 - Basic progress tracking
 
-Future phases will add more features based on upcoming business requirements.
-
 ## ✨ Current Features
 
-- 25-minute Pomodoro timer with pause/resume functionality
-- Soothing cherry blossom background with animated petals
-- Dynamic cloud animations and soft lighting effects
+- Pomodoro Timer with three modes:
+  - Focus Timer (25 minutes)
+  - Short Break (5 minutes)
+  - Long Break (15 minutes)
+- Elegant controls for start, pause, and reset
+- Seamless timer type switching
 - Progress tracking for daily and weekly focus sessions
 - Responsive design that works on all devices
 - Dark mode support
+- Soothing cherry blossom animations
 
 ## 🛠️ Tech Stack
 
 - **Framework:** Next.js 15
 - **Styling:** Tailwind CSS
 - **Animations:** Framer Motion
-- **State Management:** React Context
+- **State Management:** React Context + Custom Hooks
 - **Type Safety:** TypeScript
 
 ## 🚀 Getting Started
