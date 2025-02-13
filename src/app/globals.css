@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #171717;
+  --background-start: #F0F8FF;  /* Even lighter blue - almost white */
+  --background-end: #FFFFFF;    /* Pure white */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #ededed;
+    --background-start: #1a2a3a;
+    --background-end: #2a3a4a;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: linear-gradient(to right, var(--background-start), var(--background-end));
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
