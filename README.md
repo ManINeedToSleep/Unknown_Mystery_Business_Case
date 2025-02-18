@@ -1,28 +1,23 @@
-# 🌸 Focus Timer (Work in Progress)
+# Unknown Mystery Business Case (Work in Progress)
 
-A beautiful and calming Pomodoro timer application built with Next.js, featuring an elegant cherry blossom theme and smooth animations. This is part of a larger project that will evolve based on future business requirements.
+Why is it a mystery? Why is it unknown? It is due to the fact that... I do not have the full scope of what needs to be done for the project and therefore do not have an idea of what might this be used for. So! I've decded to keep tis name for now until I find the true prpose of this web application other than to learn the sage of React.
 
-## 🚧 Current Status
+## Current Status
 
-This is the initial phase of the project, focusing on:
-- Core Pomodoro timer functionality
-- Beautiful UI/UX with cherry blossom theme
-- Basic progress tracking
+The project, as far as it has gone now, focuses on:
+- A Working Pomodoro Timer
 
-## ✨ Current Features
+## Current Features
 
 - Pomodoro Timer with three modes:
   - Focus Timer (25 minutes)
   - Short Break (5 minutes)
   - Long Break (15 minutes)
-- Elegant controls for start, pause, and reset
-- Seamless timer type switching
-- Progress tracking for daily and weekly focus sessions
-- Responsive design that works on all devices
-- Dark mode support
+- Simeple Start, Pause, and Reset
+- Responsive design that works on all devices (Moreso the side effect of using Tailwind CSS)
 - Soothing cherry blossom animations
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework:** Next.js 15
 - **Styling:** Tailwind CSS
@@ -30,7 +25,7 @@ This is the initial phase of the project, focusing on:
 - **State Management:** React Context + Custom Hooks
 - **Type Safety:** TypeScript
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone the repository:
 
@@ -40,7 +35,6 @@ git clone https://github.com/yourusername/focus-timer.git
 2. Install dependencies:
 
 bash
-cd focus-timer
 npm install
 
 3. Run the development server:
@@ -50,34 +44,32 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📁 Project Structure
+## Project Structure (Important Ones)
 
 ```
 src/
-├── app/                   # Next.js app router pages
+├── app/                          # Next.js app router pages
 ├── components/           
-│   ├── Background.tsx    # Animated background effects
-│   ├── TimerDisplay.tsx  # Timer display component
-│   ├── TimerControls.tsx # Timer control buttons
-│   └── TimerProvider.tsx # Timer state management
-├── utils/                # Utility functions
-└── styles/               # Global styles
+│   ├── Background.tsx            # Animated background effects
+│   ├── TimerDisplay.tsx          # Timer display component
+│   ├── TimerControls.tsx         # Timer control buttons
+│   └── TimerProvider.tsx         # Timer state management
+│   └── TimerTypeSelection.tsx    # Timer Type Selection
+├── utils/                        # Utility functions
+└── styles/                       # Global styles
 ```
 
-## 🎨 Current Design Features
+## Current Design Features (Cause I wanted it to look cool)
 
 - Animated cherry blossom petals that float across the screen
-- Soft, dynamic lighting effects
-- Smooth cloud movements
 - Responsive card layouts
 - Carefully chosen color palette for visual comfort
 
-## 📱 Responsive Design
+## Responsive Design
 
 The application is fully responsive and works beautifully on:
 - Desktop computers
 - Tablets
-- Mobile devices
 
 ## 🔮 Future Development
 
